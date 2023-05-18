@@ -1,0 +1,13 @@
+.container{
+    margin: 0px;
+    padding: 0px;
+    min-width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(
+      to top,
+      pink 0%,
+      pink 50%,
+      paleturquoise 50%,
+      paleturquoise 100%
+    );
+  }
