@@ -1,7 +1,9 @@
-
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     // setError('')
@@ -9,7 +11,12 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => console.error(error));
   };
   return (
     <div>
@@ -58,7 +65,7 @@ const Login = () => {
                   <p className="ml-2 mb-2">
                     <small className="mb-2">
                       New to teddyville?
-                      <Link className="btn btn-link">Sign Up</Link>
+                      <Link to='/signup' className="btn btn-link">Sign Up</Link>
                     </small>
                   </p>
                   <input

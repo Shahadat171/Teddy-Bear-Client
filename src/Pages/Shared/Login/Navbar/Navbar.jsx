@@ -1,6 +1,19 @@
+import { useContext } from 'react';
 import logo from '../../../../assets/logo.png'
 import './Navbar.css'
+import { AuthContext } from '../../../../Providers/AuthProvider';
+import { Link } from 'react-router-dom';
+import { Tooltip } from '@mui/material';
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .cath((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="navbar navbar-style bg-slate-800 font-serif text-white">
       <div className="navbar-start">
@@ -22,10 +35,10 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <Link to='/'>Home</Link>
           </li>
           <li>
-            <a>All Toys</a>
+            <Link to='/alltoys'>All Toys</Link>
           </li>
           <li>
             <a>Blogs</a>
@@ -33,7 +46,38 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-primary bg-[#EE4264]">Login</a>
+      {user && (
+                <div className=" font-sans flex">
+                  <div>
+                    <Link to='addtoys' className='mx-2'>Add a Toy</Link>
+                    <Link className='mr-4 ml-2'>My Toy</Link>
+                    </div>
+                    <div>
+                    <Tooltip title={user.displayName}>
+                  <span>
+                    <img className="mr-4 h-8 w-8 rounded-full" src={user.photoURL} />
+                  </span>
+                  </Tooltip>
+                  </div>
+                </div>
+              )}
+               {user ? (
+                <button
+                  onClick={handleLogOut}
+                  type="button"
+                  className="btn btn-dark ms-0"
+                >
+                  Log Out
+                </button>
+              ) : (
+                <Link className="text-light" to="login">
+                  {" "}
+                  <button type="button" className="btn btn-dark ms-0">
+                    {" "}
+                    Login{" "}
+                  </button>{" "}
+                </Link>
+              )}
       </div>
     </div>
   );
