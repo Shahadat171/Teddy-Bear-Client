@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { FaDollarSign } from "react-icons/fa";
@@ -9,11 +9,11 @@ const Category = () => {
   const [Blackbear, setBlackbear] = useState([]);
   const [Grizzlybear, setGrizzlybear] = useState([]);
   const [Panda, setPanda] = useState([]);
-  fetch("http://localhost:5000/teddyBear")
-    .then((res) => res.json())
-    .then((data) => {
-      setCategory(data);
-    });
+  useEffect(() => {
+    fetch(`http://localhost:5000/teddyBear`)
+      .then((res) => res.json())
+      .then((data) => setCategory(data));
+  }, []);
 
   const handleBlackbeardata = () => {
     const remaining = category.filter(
