@@ -8,6 +8,7 @@ import PrivateRouteAddToys from "./PrivateRouteAddToys";
 import MyToy from "../Pages/Shared/MyToy/MyToy";
 import PriveteRouteMyToy from "./PriveteRouteMyToy";
 import AllToys from "../Pages/Shared/AllToys/AllToys";
+import SingleTeddyBear from "../Pages/SingleTeddyBear/SingleTeddyBear";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
         {
           path : '/addtoys',
           element : <PrivateRouteAddToys><AddaToys></AddaToys></PrivateRouteAddToys>
+        },
+        {
+          path : '/singleTeddyBear/:id',
+          element : <SingleTeddyBear></SingleTeddyBear>,
+          loader : ({params}) => fetch(`http://localhost:5000/singleTeddyBear/${params.id}`)
         },
         {
           path: '/mytoy',

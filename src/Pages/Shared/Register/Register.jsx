@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Register = () => {
-    const {createUser, googleSignIn} = useContext(AuthContext)
+    const {createUser, googleSignIn, profileUpdateData} = useContext(AuthContext)
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -19,8 +19,8 @@ const Register = () => {
         .then(result =>{
             const createdUser = result.user;
             console.log(createdUser)
-            // profileUpdateData(createdUser, name, photoURL)
-            // form.reset("")
+            profileUpdateData(createdUser, name, photoURL)
+            form.reset("")
         })
         .catch(error =>{
             console.error(error.message)

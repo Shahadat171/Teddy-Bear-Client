@@ -10,7 +10,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {})
-      .cath((error) => {
+      .catch((error) => {
         console.error(error);
       });
   };
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <div className=" font-sans flex">
                   <div>
                     <Link to='addtoys' className='mx-2'>Add a Toy</Link>
-                    <Link className='mr-4 ml-2'>My Toy</Link>
+                    <Link to='/mytoy' className='mr-4 ml-2'>My Toy</Link>
                     </div>
                     <div>
                     <Tooltip title={user.displayName}>

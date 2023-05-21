@@ -1,13 +1,10 @@
-.container{
-    margin: 0px;
-    padding: 0px;
-    min-width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(
-      to top,
-      pink 0%,
-      pink 50%,
-      paleturquoise 50%,
-      paleturquoise 100%
-    );
-  }
+.container {
+  margin: 0px;
+  padding: 0px;
+  min-width: 100%;
+  min-height: 100vh;
+  background:  linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
+}
+.border-photo{
+ border: 1px solid black;
+}

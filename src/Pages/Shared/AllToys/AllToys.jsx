@@ -7,7 +7,9 @@ const AllToys = () => {
     fetch(`http://localhost:5000/teddyBear`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         if (data.length < 21) {
+        
           setteddyBear(data);
         } else {
           const remaining = data.slice(0, 19);
