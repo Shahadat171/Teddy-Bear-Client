@@ -16,9 +16,10 @@ const Banner = () => {
             Pick The Best Toy For Your Kid
           </h1>
           <p className="mb-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Indulge in the Timeless Delight of Cuddles and Comfort with Our
+            Enchanting Selection of Teddy Bears.
+            Experience the Joy of Gifting  these Adorable
+            Treasures.
           </p>
           <button className="inline-flex rounded-full items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium">
             View More

@@ -6,7 +6,7 @@ import "./testimonial.css";
 const Testimonial = () => {
   return (
     <div
-      className="hero my-24 bg-slate-700 bg-blend-overlay min-h-screen"
+      className="hero mt-24 bg-slate-700 bg-blend-overlay min-h-screen"
       style={{
         backgroundImage: `url(${testimonial})`,
       }}
@@ -14,11 +14,11 @@ const Testimonial = () => {
       <div className=""></div>
       <div className="hero-content flex-col ">
         <div className="max-w-md">
-          <h1 className="mb-5 text-5xl text-slate-100 font-bold">
+          <h1 className="mb-12 text-4xl text-slate-300 font-semibold">
             Customer Review
           </h1>
         </div>
-        <div className="flex mx-auto justify-center gap-16">
+        <div className="flex sm:flex-col lg:flex-row mx-auto justify-center gap-16">
           <div className="container-card py-5 text-center  w-1/3  shadow-2xl">
             <div>
               <img
