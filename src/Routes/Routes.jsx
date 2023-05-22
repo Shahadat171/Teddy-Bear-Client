@@ -12,6 +12,7 @@ import SingleTeddyBear from "../Pages/SingleTeddyBear/SingleTeddyBear";
 import UpdateYourToy from "../Pages/Shared/MyToy/UpdateYourToy";
 import PrivateRouteUpdateSingleTeddyBear from "./PrivateRouteUpdateSingleTeddyBear";
 import PrivateRouteSingleTeddyBear from "./PrivateRouteSingleTeddyBear";
+import Blog from "../Pages/Home/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         {
           path: '/alltoys',
           element: <AllToys></AllToys>
+        },
+        {
+          path :'/blog',
+          element : <Blog></Blog>
         },
         {
           path : '/login',
