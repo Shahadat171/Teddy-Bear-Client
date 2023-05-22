@@ -32,7 +32,7 @@ const Login = () => {
     .then(result=>{
         const loggedUser = result.user;
         console.log(loggedUser)
-        navigate(from , {replace : true}) 
+        navigate(from , {replace : true})
     })
     .catch(error =>{
         console.error(error.message)
