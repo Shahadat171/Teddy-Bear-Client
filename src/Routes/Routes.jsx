@@ -10,6 +10,8 @@ import PriveteRouteMyToy from "./PriveteRouteMyToy";
 import AllToys from "../Pages/Shared/AllToys/AllToys";
 import SingleTeddyBear from "../Pages/SingleTeddyBear/SingleTeddyBear";
 import UpdateYourToy from "../Pages/Shared/MyToy/UpdateYourToy";
+import PrivateRouteUpdateSingleTeddyBear from "./PrivateRouteUpdateSingleTeddyBear";
+import PrivateRouteSingleTeddyBear from "./PrivateRouteSingleTeddyBear";
 
 const router = createBrowserRouter([
     {
@@ -38,12 +40,12 @@ const router = createBrowserRouter([
         },
         {
           path : '/singleTeddyBear/:id',
-          element : <SingleTeddyBear></SingleTeddyBear>,
+          element : <PrivateRouteSingleTeddyBear><SingleTeddyBear></SingleTeddyBear></PrivateRouteSingleTeddyBear>,
           loader : ({params}) => fetch(`http://localhost:5000/singleTeddyBear/${params.id}`)
         },
         {
           path : '/updateSingleTeddyBear/:id',
-          element : <UpdateYourToy></UpdateYourToy>,
+          element : <PrivateRouteUpdateSingleTeddyBear><UpdateYourToy></UpdateYourToy></PrivateRouteUpdateSingleTeddyBear>,
           loader : ({params}) => fetch(`http://localhost:5000/updateSingleTeddyBear/${params.id}`)
         },
         {
