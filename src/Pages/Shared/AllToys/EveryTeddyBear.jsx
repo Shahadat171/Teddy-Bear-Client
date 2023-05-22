@@ -4,7 +4,7 @@ const EveryTeddyBear = ({ teddyBear }) => {
   console.log(teddyBear);
   return (
     <tr>
-      <td>1</td>
+      <td><input type="checkbox" className="checkbox" /></td>
       <td>{teddyBear.name}</td>
       <td>{teddyBear.type}</td>
       <td>{teddyBear.sellerName ? teddyBear.sellerName : "No seller"}</td>

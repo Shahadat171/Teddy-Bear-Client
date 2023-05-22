@@ -1,9 +1,10 @@
 import { useContext } from "react";
+import google from '../../../assets/google.png'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn,googleSignIn } = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     // setError('')
@@ -18,6 +19,19 @@ const Login = () => {
       })
       .catch((error) => console.error(error));
   };
+
+  const handleGoogleLogin =()=>{
+    googleSignIn()
+    .then(result=>{
+        const loggedUser = result.user;
+        console.log(loggedUser)
+        // navigate(from , {replace : true}) 
+    })
+    .catch(error =>{
+        console.error(error.message)
+    })
+  }
+
   return (
     <div>
       <div
@@ -75,6 +89,10 @@ const Login = () => {
                   />
                 </div>
               </form>
+              <div className='text-center mt-3'>
+                  <p className="text-center mb-2"><small>Or sign up using</small></p>
+                  <button onClick={handleGoogleLogin} className='mx-auto'><img className='mx-auto' src={google} alt="" /></button>
+                </div>
             </div>
           </div>
         </div>
