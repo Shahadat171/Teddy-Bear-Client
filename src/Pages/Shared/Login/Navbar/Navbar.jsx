@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import logo from '../../../../assets/logo.png'
-import './Navbar.css'
-import { AuthContext } from '../../../../Providers/AuthProvider';
-import { Link } from 'react-router-dom';
-import { Tooltip } from '@mui/material';
+import { useContext } from "react";
+import logo from "../../../../assets/logo.png";
+import "./Navbar.css";
+import { AuthContext } from "../../../../Providers/AuthProvider";
+import { Link } from "react-router-dom";
+import { Tooltip } from "@mui/material";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -19,65 +19,88 @@ const Navbar = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
-          
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu text-black menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>Home</li>
+            <li >Home</li>
             <li>All Toys</li>
             <li>Blogs</li>
           </ul>
         </div>
-        <a  className="btn btn-ghost normal-case text-xl"> <img className=' h-14 w-15' src={logo} alt="" /></a>
+        <a className="btn btn-ghost normal-case text-xl">
+          {" "}
+          <img className=" h-14 w-15" src={logo} alt="" />
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to='/'>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to='/alltoys'>All Toys</Link>
+            <Link to="/alltoys">All Toys</Link>
           </li>
           <li>
-            <Link to='/blog'>Blogs</Link>
+            <Link to="/blog">Blogs</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-      {user && (
-                <div className=" font-sans flex">
-                  <div>
-                    <Link to='addtoys' className='mx-2'>Add a Toy</Link>
-                    <Link to='/mytoy' className='mr-4 ml-2'>My Toy</Link>
-                    </div>
-                    <div>
-                    <Tooltip title={user.displayName}>
-                  <span>
-                    <img className="mr-4 h-8 w-8 rounded-full" src={user.photoURL} />
-                  </span>
-                  </Tooltip>
-                  </div>
-                </div>
-              )}
-               {user ? (
-                <button
-                  onClick={handleLogOut}
-                  type="button"
-                  className="btn btn-dark ms-0"
-                >
-                  Log Out
-                </button>
-              ) : (
-                <Link className="text-light" to="login">
-                  {" "}
-                  <button type="button" className="btn btn-dark ms-0">
-                    {" "}
-                    Login{" "}
-                  </button>{" "}
-                </Link>
-              )}
+        {user && (
+          <div className="font-sans flex">
+            <div>
+              <Link to="addtoys" className="mx-2">
+                Add a Toy
+              </Link>
+              <Link to="/mytoy" className="mr-4 ml-2">
+                My Toy
+              </Link>
+            </div>
+            <div>
+              <Tooltip title={user.displayName}>
+                <span>
+                  <img
+                    className="mr-4 h-8 w-8 rounded-full"
+                    src={user.photoURL}
+                  />
+                </span>
+              </Tooltip>
+            </div>
+          </div>
+        )}
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            type="button"
+            className="btn btn-dark ms-0"
+          >
+            Log Out
+          </button>
+        ) : (
+          <Link className="text-light " to="login">
+            {" "}
+            <button type="button" className="btn btn-dark ms-0">
+              {" "}
+              Login{" "}
+            </button>{" "}
+          </Link>
+        )}
       </div>
     </div>
   );
