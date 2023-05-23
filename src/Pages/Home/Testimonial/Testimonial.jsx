@@ -2,8 +2,18 @@ import { Rating } from "@mui/material";
 import testimonial from "../../../assets/banner-image/banner3.jpg";
 import man1 from "../../../assets/man1.avif";
 import man2 from "../../../assets/man2.avif";
-import "./testimonial.css";
+import './testimonial.css'
+import 'aos/dist/aos.css'
+import Aos from "aos";
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
+
 const Testimonial = () => {
+  
+  useEffect(()=>{
+    Aos.init({duration : 2000})
+  },[])
+
   return (
     <div
       className="hero mt-24 bg-slate-700 bg-blend-overlay min-h-screen"
@@ -19,7 +29,7 @@ const Testimonial = () => {
           </h1>
         </div>
         <div className="flex sm:flex-col lg:flex-row mx-auto justify-center gap-16">
-          <div className="container-card py-5 text-center  w-1/3  shadow-2xl">
+          <div className="container-card py-5 text-center  w-1/3  shadow-2xl" data-aos='fade-right'>
             <div>
               <img
                 className=" rounded-full shadow-lg h-20 w-20 mx-auto"
@@ -50,7 +60,7 @@ const Testimonial = () => {
               </p>
             </div>
           </div>
-          <div className="container-card py-5 text-center  w-1/3  shadow-2xl">
+          <div className="container-card py-5 text-center  w-1/3  shadow-2xl" data-aos="fade-left">
             <div>
               <img
                 className=" rounded-full shadow-lg h-20 w-20 mx-auto"

@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         {
           path : '/updateSingleTeddyBear/:id',
           element : <PrivateRouteUpdateSingleTeddyBear><UpdateYourToy></UpdateYourToy></PrivateRouteUpdateSingleTeddyBear>,
-          loader : ({params}) => fetch(`http://localhost:5000/updateSingleTeddyBear/${params.id}`)
+          loader : ({params}) => fetch(`http://localhost:5000/getUpdateSingleTeddyBear/${params.id}`)
         },
         {
           path: '/mytoy',

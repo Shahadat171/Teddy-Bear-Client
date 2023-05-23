@@ -1,6 +1,12 @@
 import "./PhotoGallary.css";
+import Aos from "aos";
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 
 const PhotoGallary = () => {
+  useEffect(()=>{
+    Aos.init({duration : 2000})
+  },[])
   return (
     <div className="container text-center">
       <div>
@@ -9,14 +15,14 @@ const PhotoGallary = () => {
           style={{ maxWidth: "75%" }}
           className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto pt-12 pb-12 items-center justify-center"
         >
-          <div className="rounded-lg w-96 h-96 shadow-2xl">
+          <div className="rounded-lg w-96 h-96 shadow-2xl" data-aos='fade-right'>
               <h1 className=" text-center text-2xl pt-5 ">Baby Toys</h1>
             <figure className="scale-75">
               <img src="https://i.ibb.co/Hnsz6cx/ok.png"/>
             </figure>
           
           </div>
-          <div className="rounded-lg w-96 h-96 shadow-2xl">
+          <div className="rounded-lg w-96 h-96 shadow-2xl" data-aos='fade-up'>
             <h1 className=" text-center text-2xl pt-5 ">Litle Brite</h1>
             <figure className="scale-75">
               <img
@@ -25,7 +31,7 @@ const PhotoGallary = () => {
               />
             </figure>
           </div>
-          <div className="rounded-lg w-96 h-96 shadow-2xl">
+          <div className="rounded-lg w-96 h-96 shadow-2xl" data-aos='fade-left'>
             <h1 className=" text-center text-2xl pt-5 ">Gift Toys</h1>
             <figure className="scale-75">
               <img
@@ -34,7 +40,7 @@ const PhotoGallary = () => {
               />
             </figure>
           </div>
-          <div className="rounded-lg w-96 h-96 shadow-2xl">
+          <div className="rounded-lg w-96 h-96 shadow-2xl" data-aos='fade-right'>
             <h1 className=" text-center text-2xl pt-5 ">Play Toys</h1>
             <figure className="scale-75">
               <img
@@ -43,7 +49,7 @@ const PhotoGallary = () => {
               />
             </figure>
           </div>
-          <div className="rounded-lg w-96 h-96 shadow-2xl">
+          <div className="rounded-lg w-96 h-96 shadow-2xl" data-aos='fade-up'>
             <h1 className=" text-center text-2xl pt-5 ">Soft Toys</h1>
             <figure className="scale-75">
               <img
@@ -52,7 +58,7 @@ const PhotoGallary = () => {
               />
             </figure>
           </div>
-          <div className="rounded-lg w-96 h-96 shadow-2xl">
+          <div className="rounded-lg w-96 h-96 shadow-2xl" data-aos='fade-left'>
             <h1 className="text-center text-2xl pt-5 ">Key Toys</h1>
             <figure className="scale-75">
               <img

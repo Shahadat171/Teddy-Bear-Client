@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 const UpdateYourToy = () => {
   const teddyBear = useLoaderData();
+  console.log(teddyBear)
   const [oldTeddyBear, setOldTeddyBear] = useState([]);
 
   useEffect(() => {
@@ -53,6 +54,7 @@ const UpdateYourToy = () => {
                 'Your Toy Updated Successfully',
                 'success'
               )
+            form.reset('')  
             const remaining = oldTeddyBear.filter((everyOldTeddyBear) => everyOldTeddyBear._id !== teddyBear._id);
             const updated = oldTeddyBear.find((everyOldTeddyBear) => everyOldTeddyBear._id === teddyBear._id);
             const newTeddyBear = [updated, ...remaining];

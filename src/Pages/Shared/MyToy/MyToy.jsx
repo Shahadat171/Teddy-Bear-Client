@@ -35,7 +35,7 @@ const MyToy = () => {
   };
 
   const handleSortByDate = (AdState) =>{
-    setAsending(AdState)
+          
   }
 
   return (

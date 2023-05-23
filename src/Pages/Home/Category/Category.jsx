@@ -46,12 +46,12 @@ const Category = () => {
                 <div
                   style={{
                     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                    maxHeight: "450px",
+                    maxHeight: "485px",
                   }}
-                  className="card w-96  shadow-xl"
+                  className="card w-96  shadow-xl "
                   key={blackTeddyBear.id}
                 >
-                  <figure className="bg-[#E6EFFF]">
+                  <figure className="bg-[#E6EFFF] px-10 pt-10 pb-10">
                     <img src={blackTeddyBear.image} />
                   </figure>
                   <div className="card-body bg-orange-200 text-center">
@@ -88,12 +88,12 @@ const Category = () => {
                 <div
                   style={{
                     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                    maxHeight: "430px",
+                    maxHeight: "450px",
                   }}
                   className="card w-96 bg-base-100 shadow-xl"
                   key={grizzlyTeddyBear.id}
                 >
-                  <figure className="bg-[#E6EFFF]">
+                  <figure className="bg-[#E6EFFF] px-3 py-3">
                     <img src={grizzlyTeddyBear.image} />
                   </figure>
                   <div className="card-body bg-orange-200 text-center">
@@ -130,12 +130,12 @@ const Category = () => {
                 <div
                   style={{
                     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                    maxHeight: "450px",
+                    maxHeight: "500px",
                   }}
                   className="card w-96 bg-base-100 shadow-xl"
                   key={pandaTeddyBear.id}
                 >
-                  <figure className="bg-[#E6EFFF]">
+                  <figure className="bg-[#E6EFFF] px-10 pt-14 pb-14">
                     <img src={pandaTeddyBear.image} />
                   </figure>
                   <div className="card-body bg-orange-200 text-center">
