@@ -13,7 +13,7 @@ const AddaToys = () => {
         const sellerEmail = form.email.value;
         const type = form.category.value;
         const rating = form.rating.value;
-        const price = form.price.value;
+        const price = parseFloat(form.price.value);
         const quantity = form.quantity.value;
         const description = form.description.value;
         const newTeddyBear = {name,image,sellerName,type,rating,sellerEmail,price,quantity,description}

@@ -13,6 +13,7 @@ import UpdateYourToy from "../Pages/Shared/MyToy/UpdateYourToy";
 import PrivateRouteUpdateSingleTeddyBear from "./PrivateRouteUpdateSingleTeddyBear";
 import PrivateRouteSingleTeddyBear from "./PrivateRouteSingleTeddyBear";
 import Blog from "../Pages/Home/Blog/Blog";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
           element: <PriveteRouteMyToy><MyToy></MyToy></PriveteRouteMyToy>
         }
       ]
+    },
+    {
+      path : "*",
+      element : <ErrorPage></ErrorPage>
     }
   ]);
 

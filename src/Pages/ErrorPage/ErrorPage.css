@@ -1,0 +1,8 @@
+
+.image-bg{
+    background-image: url('../../assets/error.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(88, 80, 80);
+    background-blend-mode: overlay;
+}
