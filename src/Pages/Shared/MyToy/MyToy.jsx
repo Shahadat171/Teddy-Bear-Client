@@ -7,7 +7,7 @@ const MyToy = () => {
   const { user } = useContext(AuthContext);
   const [MyTeddyBear, setMyTeddyBear] = useState([]);
 
-  const url = `http://localhost:5000/myTeddyBear?sellerEmail=${user?.email}`;
+  const url = `https://teddy-bear-server.vercel.app/myTeddyBear?sellerEmail=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -16,17 +16,16 @@ const MyToy = () => {
 
   const handleDelete = (id) => {
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    })
-    .then((result) =>{
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myTeddyBear/${id}`, {
+        fetch(`https://teddy-bear-server.vercel.app/myTeddyBear/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -34,9 +33,9 @@ const MyToy = () => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire(
-                'Deleted!',
-                'Your teddy bear has been deleted.',
-                'success'
+                "Deleted!",
+                "Your teddy bear has been deleted.",
+                "success"
               );
               const remaining = MyTeddyBear.filter(
                 (teddybear) => teddybear._id !== id
@@ -44,19 +43,18 @@ const MyToy = () => {
               setMyTeddyBear(remaining);
             }
           });
-    }
-    })
-  }
-
+      }
+    });
+  };
 
   const handleLowToHigh = () => {
     const acMyTeddyBear = MyTeddyBear.sort((a, b) => a.price - b.price);
     setMyTeddyBear(acMyTeddyBear);
   };
-  const handleHighToLow = () =>{
-    const acMyTeddyBear = MyTeddyBear.sort((a, b) => a.price - b.price)
-    setMyTeddyBear(acMyTeddyBear)
-  }
+  const handleHighToLow = () => {
+    const acMyTeddyBear = MyTeddyBear.sort((a, b) => a.price - b.price);
+    setMyTeddyBear(acMyTeddyBear);
+  };
 
   return (
     <div style={{ minHeight: "40vh" }}>

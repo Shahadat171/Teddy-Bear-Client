@@ -6,42 +6,42 @@ import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Category = () => {
-  const [type, setType] = useState('Blackbear')
-  const [toys, setToys] = useState([])
+  const [type, setType] = useState("Blackbear");
+  const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/teddyBear/${type}`)
+    fetch(`https://teddy-bear-server.vercel.app/teddyBear/${type}`)
       .then((res) => res.json())
       .then((data) => {
-        
-        console.log(data)
-        setToys(data)});
+        console.log(data);
+        setToys(data);
+      });
   }, [type]);
 
-  const handleSubCategory = (category) =>{
-    setType(category)
-  }
+  const handleSubCategory = (category) => {
+    setType(category);
+  };
 
   return (
     <div className="">
       <div className="w-2/3 mx-auto text-center pt-5 ">
         <Tabs>
           <TabList className="flex-grow bg-gray-200 pt-2 pb-4 rounded-md space-x-4">
-            <Tab onClick={()=>handleSubCategory('Blackbear')}>
+            <Tab onClick={() => handleSubCategory("Blackbear")}>
               {" "}
               <span className="font-serif text-xl">Black Teddy Bear</span>
             </Tab>
-            <Tab onClick={()=>handleSubCategory('Grizzlybear')}>
+            <Tab onClick={() => handleSubCategory("Grizzlybear")}>
               {" "}
               <span className="font-serif text-xl ">Grizzly Teddy Bear </span>
             </Tab>
-            <Tab onClick={()=>handleSubCategory('Panda')}>
+            <Tab onClick={() => handleSubCategory("Panda")}>
               {" "}
               <span className="font-serif text-xl">Panda Teddy Bear </span>
             </Tab>
           </TabList>
 
           <TabPanel className="">
-          <div className="flex gap-6 mt-5 mb-5">
+            <div className="flex gap-6 mt-5 mb-5">
               {toys.map((blackTeddyBear) => (
                 <div
                   style={{
@@ -72,9 +72,9 @@ const Category = () => {
                     ></Rating>
                     <div className="">
                       <Link to={`/singleTeddyBear/${blackTeddyBear._id}`}>
-                      <button className="inline-flex rounded-full items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium">
-                        View Details
-                      </button>
+                        <button className="inline-flex rounded-full items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium">
+                          View Details
+                        </button>
                       </Link>
                     </div>
                   </div>
@@ -113,10 +113,10 @@ const Category = () => {
                       readOnly
                     ></Rating>
                     <div className="">
-                    <Link to={`/singleTeddyBear/${grizzlyTeddyBear._id}`}>
-                      <button className="inline-flex rounded-full items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium">
-                        View Details
-                      </button>
+                      <Link to={`/singleTeddyBear/${grizzlyTeddyBear._id}`}>
+                        <button className="inline-flex rounded-full items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium">
+                          View Details
+                        </button>
                       </Link>
                     </div>
                   </div>
@@ -155,10 +155,10 @@ const Category = () => {
                       readOnly
                     ></Rating>
                     <div className="">
-                    <Link to={`/singleTeddyBear/${pandaTeddyBear._id}`}>
-                      <button className="inline-flex rounded-full items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium">
-                        View Details
-                      </button>
+                      <Link to={`/singleTeddyBear/${pandaTeddyBear._id}`}>
+                        <button className="inline-flex rounded-full items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium">
+                          View Details
+                        </button>
                       </Link>
                     </div>
                   </div>

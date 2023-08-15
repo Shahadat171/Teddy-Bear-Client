@@ -4,12 +4,11 @@ import EveryTeddyBear from "./EveryTeddyBear";
 const AllToys = () => {
   const [teddyBear, setteddyBear] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/teddyBear`)
+    fetch(`https://teddy-bear-server.vercel.app/teddyBear`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.length < 21) {
-        
           setteddyBear(data);
         } else {
           const remaining = data.slice(0, 19);

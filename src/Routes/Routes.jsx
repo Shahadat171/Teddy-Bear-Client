@@ -16,54 +16,76 @@ import Blog from "../Pages/Home/Blog/Blog";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children : [
-        {
-            path: "/",
-            element: <Home></Home>
-        },
-        {
-          path : '/signup',
-          element : <Register></Register>
-        },
-        {
-          path: '/alltoys',
-          element: <AllToys></AllToys>
-        },
-        {
-          path :'/blog',
-          element : <Blog></Blog>
-        },
-        {
-          path : '/login',
-          element : <Login></Login>
-        },
-        {
-          path : '/addtoys',
-          element : <PrivateRouteAddToys><AddaToys></AddaToys></PrivateRouteAddToys>
-        },
-        {
-          path : '/singleTeddyBear/:id',
-          element : <PrivateRouteSingleTeddyBear><SingleTeddyBear></SingleTeddyBear></PrivateRouteSingleTeddyBear>,
-          loader : ({params}) => fetch(`http://localhost:5000/singleTeddyBear/${params.id}`)
-        },
-        {
-          path : '/updateSingleTeddyBear/:id',
-          element : <PrivateRouteUpdateSingleTeddyBear><UpdateYourToy></UpdateYourToy></PrivateRouteUpdateSingleTeddyBear>,
-          loader : ({params}) => fetch(`http://localhost:5000/getUpdateSingleTeddyBear/${params.id}`)
-        },
-        {
-          path: '/mytoy',
-          element: <PriveteRouteMyToy><MyToy></MyToy></PriveteRouteMyToy>
-        }
-      ]
-    },
-    {
-      path : "*",
-      element : <ErrorPage></ErrorPage>
-    }
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/signup",
+        element: <Register></Register>,
+      },
+      {
+        path: "/alltoys",
+        element: <AllToys></AllToys>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/addtoys",
+        element: (
+          <PrivateRouteAddToys>
+            <AddaToys></AddaToys>
+          </PrivateRouteAddToys>
+        ),
+      },
+      {
+        path: "/singleTeddyBear/:id",
+        element: (
+          <PrivateRouteSingleTeddyBear>
+            <SingleTeddyBear></SingleTeddyBear>
+          </PrivateRouteSingleTeddyBear>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://teddy-bear-server.vercel.app/singleTeddyBear/${params.id}`
+          ),
+      },
+      {
+        path: "/updateSingleTeddyBear/:id",
+        element: (
+          <PrivateRouteUpdateSingleTeddyBear>
+            <UpdateYourToy></UpdateYourToy>
+          </PrivateRouteUpdateSingleTeddyBear>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://teddy-bear-server.vercel.app/getUpdateSingleTeddyBear/${params.id}`
+          ),
+      },
+      {
+        path: "/mytoy",
+        element: (
+          <PriveteRouteMyToy>
+            <MyToy></MyToy>
+          </PriveteRouteMyToy>
+        ),
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  },
+]);
 
-  export default router;
+export default router;

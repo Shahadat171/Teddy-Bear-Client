@@ -4,15 +4,15 @@ import Swal from "sweetalert2";
 
 const UpdateYourToy = () => {
   const teddyBear = useLoaderData();
-  console.log(teddyBear)
+  console.log(teddyBear);
   const [oldTeddyBear, setOldTeddyBear] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/teddyBear")
-      .then(res => res.json())
-      .then(data=> setOldTeddyBear(data));
+    fetch("https://teddy-bear-server.vercel.app/teddyBear")
+      .then((res) => res.json())
+      .then((data) => setOldTeddyBear(data));
   }, []);
- 
+
   const handleUpdate = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -36,31 +36,34 @@ const UpdateYourToy = () => {
       quantity,
       description,
     };
-    
-    console.log(updatedTeddyBear)
-    fetch(`http://localhost:5000/updateSingleTeddyBear/${teddyBear._id}`,{
-        method : 'PUT',
-        headers : {
-            'content-type' : 'application/json'
+
+    console.log(updatedTeddyBear);
+    fetch(
+      `https://teddy-bear-server.vercel.app/updateSingleTeddyBear/${teddyBear._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
         },
-        body : JSON.stringify(updatedTeddyBear)
-    })
-        .then(res => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.modifiedCount > 0) {
-            Swal.fire(
-                'Updated',
-                'Your Toy Updated Successfully',
-                'success'
-              )
-            form.reset('')  
-            const remaining = oldTeddyBear.filter((everyOldTeddyBear) => everyOldTeddyBear._id !== teddyBear._id);
-            const updated = oldTeddyBear.find((everyOldTeddyBear) => everyOldTeddyBear._id === teddyBear._id);
-            const newTeddyBear = [updated, ...remaining];
-            setOldTeddyBear(newTeddyBear);
-          }
-        });
+        body: JSON.stringify(updatedTeddyBear),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire("Updated", "Your Toy Updated Successfully", "success");
+          form.reset("");
+          const remaining = oldTeddyBear.filter(
+            (everyOldTeddyBear) => everyOldTeddyBear._id !== teddyBear._id
+          );
+          const updated = oldTeddyBear.find(
+            (everyOldTeddyBear) => everyOldTeddyBear._id === teddyBear._id
+          );
+          const newTeddyBear = [updated, ...remaining];
+          setOldTeddyBear(newTeddyBear);
+        }
+      });
   };
 
   return (
